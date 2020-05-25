@@ -18,6 +18,6 @@ jobs:
         id: read-tokens
         with:
           request-tokens: GITHUB_TOKEN
-          repository: boardman-app/pipeline-actions
+          repository: sheyixx/pipeline-actions
           token:  ${{secrets.GITHUB_TOKEN}}
           ignore-failure: false
