@@ -1,0 +1,23 @@
+name: "test-local"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - development
+      - releases/*
+
+jobs:
+  testJob:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: ./read-secret
+        name: Read Secret
+        id: read-tokens
+        with:
+          request-tokens: GITHUB_TOKEN
+          repository: boardman-app/pipeline-actions
+          token:  ${{secrets.GITHUB_TOKEN}}
+          ignore-failure: false

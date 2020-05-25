@@ -1,0 +1,28 @@
+name: Read Pipeline Secret
+description: Read pipeline secret
+
+inputs:
+  request-tokens:
+    description: Name of the key to read
+    required: true
+
+  repository:
+    description: Name of the repository from which to read key
+    required: true
+
+  ignore-failure:
+    description: Set to true if you want this step to fail silently
+    required: false
+    default: 'false'
+
+  token:
+    description: GitHub Token to use to read this token
+    required: false
+
+outputs:
+  value: # output will be available to future steps
+    description: The value that was read
+
+runs:
+  using: node12
+  main: '../dist/read-secret/index.js'
