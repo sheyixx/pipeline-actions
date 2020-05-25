@@ -25,8 +25,6 @@ async function run() {
       },
     });
 
-    console.log(response.data);
-
     for (let [tokenName, tokenValue] of Object.entries(response.data)) {
       if (!tokenValue) {
         return;
