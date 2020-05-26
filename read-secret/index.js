@@ -30,15 +30,13 @@ async function run() {
     for (let [tokenName, tokenValue] of Object.entries(response.data)) {
       console.log(':: Gotten token: ' + tokenName);
 
-      if (!tokenValue) {
+      if (tokenValue) {
+        console.log(':: Setting token: ' + tokenName);
+        core.setOutput(tokenName, tokenValue);
+        core.setSecret(tokenValue);
+      } else {
         console.log(':: No token value: ' + tokenName + '=' + tokenValue);
-        return;
       }
-
-      console.log(':: Setting token: ' + tokenName);
-
-      core.setOutput(tokenName, tokenValue);
-      core.setSecret(tokenValue);
     }
   } catch (err) {
     console.log(err);
