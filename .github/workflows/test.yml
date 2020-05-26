@@ -17,6 +17,7 @@ jobs:
         name: Read Secret
         id: read-tokens
         with:
+          secret-store: http://your-secret-store
           request-tokens: GITHUB_TOKEN
           repository: sheyixx/pipeline-actions
           token:  ${{secrets.GITHUB_TOKEN}}
