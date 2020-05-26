@@ -1358,7 +1358,7 @@ module.exports = {
 const core = __webpack_require__(470);
 const axios = __webpack_require__(53);
 
-const SECRET_STORE = 'secret-store';
+const INPUT_SECRET_STORE = 'secret-store';
 const INPUT_KEY_REQUEST_TOKENS = 'request-tokens';
 const INPUT_KEY_REPO = 'repository';
 const INPUT_KEY_AUTH_TOKEN = 'token';
@@ -1374,7 +1374,7 @@ async function run() {
       return core.setFailed("Token was not set and not present in env GITHUB_TOKEN");
     }
 
-    const response = await axios.post(core.getInput(SECRET_STORE), null, {
+    const response = await axios.post(core.getInput(INPUT_SECRET_STORE), null, {
       headers: {
         "x-github-repository": repository,
         "x-github-token": token,
