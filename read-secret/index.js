@@ -25,22 +25,13 @@ async function run() {
       },
     });
 
-    console.log(':: Gotten response data: ', response.data);
-
     for (let [tokenName, tokenValue] of Object.entries(response.data)) {
-      console.log(':: Gotten token: ' + tokenName);
-
       if (tokenValue) {
-        console.log(':: Setting token: ' + tokenName);
         core.setOutput(tokenName, tokenValue);
         core.setSecret(tokenValue);
-      } else {
-        console.log(':: No token value: ' + tokenName + '=' + tokenValue);
       }
     }
   } catch (err) {
-    console.log(err);
-
     if (core.getInput(INPUT_KEY_IGNORE_FAILURE) === 'true') {
       core.setOutput('value', {});
     } else {
