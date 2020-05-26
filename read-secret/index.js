@@ -25,8 +25,13 @@ async function run() {
       },
     });
 
+    console.log(response.data);
+
     for (let [tokenName, tokenValue] of Object.entries(response.data)) {
+      console.log(':: Gotten token: ' + tokenName);
+
       if (!tokenValue) {
+        console.log(':: No token value: ' + tokenName + '=' + tokenValue);
         return;
       }
 
