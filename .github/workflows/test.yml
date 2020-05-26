@@ -20,4 +20,10 @@ jobs:
           request-tokens: GITHUB_TOKEN
           repository: sheyixx/pipeline-actions
           token:  ${{secrets.GITHUB_TOKEN}}
-          ignore-failure: false
+          ignore-failure: true
+
+      - name: Show results
+        env:
+          GITHUB_TOKEN: ${{ steps.read-tokens.outputs.GITHUB_TOKEN }}
+        run: |
+          echo $GITHUB_TOKEN
