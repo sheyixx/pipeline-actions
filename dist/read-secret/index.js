@@ -666,14 +666,6 @@ module.exports = __webpack_require__(352);
 
 /***/ }),
 
-/***/ 68:
-/***/ (function(__unusedmodule, exports) {
-
-exports.secretStoreUrl = 'https://60jo4z1f90.execute-api.us-east-1.amazonaws.com/default/git-token-manager';
-
-
-/***/ }),
-
 /***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1365,8 +1357,8 @@ module.exports = {
 
 const core = __webpack_require__(470);
 const axios = __webpack_require__(53);
-const config = __webpack_require__(68);
 
+const INPUT_SECRET_STORE = 'secret-store';
 const INPUT_KEY_REQUEST_TOKENS = 'request-tokens';
 const INPUT_KEY_REPO = 'repository';
 const INPUT_KEY_AUTH_TOKEN = 'token';
@@ -1382,7 +1374,7 @@ async function run() {
       return core.setFailed("Token was not set and not present in env GITHUB_TOKEN");
     }
 
-    const response = await axios.post(config.secretStoreUrl, null, {
+    const response = await axios.post(core.getInput(INPUT_SECRET_STORE), null, {
       headers: {
         "x-github-repository": repository,
         "x-github-token": token,

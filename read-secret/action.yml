@@ -2,6 +2,10 @@ name: Read Pipeline Secret
 description: Read pipeline secret
 
 inputs:
+  secret-store:
+    description: Secret store url
+    required: true
+
   request-tokens:
     description: Name of the key to read
     required: true
