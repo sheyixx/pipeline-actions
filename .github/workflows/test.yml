@@ -20,7 +20,7 @@ jobs:
           secret-store: http://your-secret-store
           request-tokens: GITHUB_TOKEN
           repository: sheyixx/pipeline-actions
-          token:  ${{secrets.GITHUB_TOKEN}}
+          token: ${{secrets.GITHUB_TOKEN}}
           ignore-failure: true
 
       - name: Show results
