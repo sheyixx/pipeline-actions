@@ -16,7 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "@actions/core": "1.2.4",
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "husky": "4.2.5"
   },
   "devDependencies": {
